@@ -3,13 +3,22 @@ usage
 $ node  convert.js
 */
 
+const PAGE_FOOD_TITLE = "食の記録";
+const PAGE_BOOKMARK_TITLE = "BOOKMARK";
+
+
+// link
+var linkTag = "";
+linkTag += "<a href=\"./food.html\">" + PAGE_FOOD_TITLE + "</a>"
+
+
+// read json
 var filenames = [
 	'./business.json',
 	'./sports.json'
 	];
 var jsonAll = null;
 
-// read json
 filenames.forEach(function(filename){
 	var fs = require('fs');
 	var tmp = JSON.parse(fs.readFileSync(filename, 'utf8'));
@@ -87,9 +96,12 @@ console.log(
 </head>
 
 <body>
+
+${linkTag}
+
 <center>
 
-<h1>BOOKMARK</h1>
+<h1>${PAGE_BOOKMARK_TITLE}</h1>
 
 ${contents}
 
