@@ -9,7 +9,7 @@ const PAGE_BOOKMARK_TITLE = "BOOKMARK";
 
 // link
 var linkTag = "";
-linkTag += "<a href=\"./food.html\">" + PAGE_FOOD_TITLE + "</a>"
+linkTag += "<div class=\"link-style\"><a href=\"./food.html\">" + PAGE_FOOD_TITLE + "</a></div>"
 
 
 // read json
