@@ -3,13 +3,7 @@ usage
 $ node  convert.js
 */
 
-const PAGE_FOOD_TITLE = "食の記録";
 const PAGE_BOOKMARK_TITLE = "BOOKMARK";
-
-
-// link
-var linkTag = "";
-linkTag += "<div class=\"link-style\"><a href=\"./food.html\">" + PAGE_FOOD_TITLE + "</a></div>"
 
 
 // read json
@@ -52,7 +46,7 @@ var categorytable = [
 	];
 jsonAll.forEach(function(val){
 
-	contents += "<div class=\"bookmark-style\">";
+	contents += "<div class=\"bookmark-style\">\n";
 
 	contents += "<div class=\"category-style\">";
 	contents += val.registrationDate;
@@ -96,9 +90,6 @@ console.log(
 </head>
 
 <body>
-
-${linkTag}
-
 <center>
 
 <h1>${PAGE_BOOKMARK_TITLE}</h1>
@@ -107,5 +98,5 @@ ${contents}
 
 </center>
 </body>
-<html>
+</html>
 `);
