@@ -3,7 +3,7 @@ usage
 $ node  convert.js
 */
 
-const PAGE_BOOKMARK_TITLE = "BOOKMARK";
+const PAGE_BOOKMARK_TITLE = "MY BOOKMARK";
 
 
 // read json
@@ -86,7 +86,7 @@ console.log(
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="./bookmark.css" media="all">
-<title>記録 - yoshi.h</title>
+<title>${PAGE_BOOKMARK_TITLE} - yoshi's 記録</title>
 </head>
 
 <body>
