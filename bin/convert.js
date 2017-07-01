@@ -14,8 +14,8 @@ var filenames = [
 var jsonAll = null;
 
 filenames.forEach(function(filename){
-	var fs = require('fs');
-	var tmp = JSON.parse(fs.readFileSync(filename, 'utf8'));
+	let fs = require('fs');
+	let tmp = JSON.parse(fs.readFileSync(filename, 'utf8'));
 	if (jsonAll == null) {
 		jsonAll = tmp;
 	}
@@ -53,9 +53,9 @@ jsonAll.forEach(function(val){
 	contents += "&emsp;";
 	contents += val.genre;
 	contents += "（";
-	for (var key in categorytable) {
-		if (val.category == categorytable[key].category) {
-			contents += categorytable[key].printTitle;
+	for (let category of categorytable) {
+		if (val.category == category.category) {
+			contents += category.printTitle;
 			break;
 		}
 	}
