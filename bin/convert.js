@@ -7,15 +7,15 @@ const PAGE_BOOKMARK_TITLE = "MY BOOKMARK";
 
 
 // read json
-var filenames = [
+var jsonFilenames = [
 	'./business.json',
 	'./sports.json'
 	];
 var jsonAll = null;
 
-filenames.forEach(function(filename){
+jsonFilenames.forEach(function(jsonFilename){
 	let fs = require('fs');
-	let tmp = JSON.parse(fs.readFileSync(filename, 'utf8'));
+	let tmp = JSON.parse(fs.readFileSync(jsonFilename, 'utf8'));
 	if (jsonAll == null) {
 		jsonAll = tmp;
 	}
@@ -40,22 +40,22 @@ jsonAll.sort(function(a,b){
 
 // contents
 var contents = "";
-var categorytable = [
+var categoryInfos = [
 	{category:"business",	printTitle:"ビジネス"},
 	{category:"sports",	printTitle:"スポーツ"},
 	];
-jsonAll.forEach(function(val){
+jsonAll.forEach(function(jsonObj){
 
 	contents += "<div class=\"bookmark-style\">\n";
 
 	contents += "<div class=\"category-style\">";
-	contents += val.registrationDate;
+	contents += jsonObj.registrationDate;
 	contents += "&emsp;";
-	contents += val.genre;
+	contents += jsonObj.genre;
 	contents += "（";
-	for (let category of categorytable) {
-		if (val.category == category.category) {
-			contents += category.printTitle;
+	for (let categoryInfo of categoryInfos) {
+		if (jsonObj.category == categoryInfo.category) {
+			contents += categoryInfo.printTitle;
 			break;
 		}
 	}
@@ -63,13 +63,13 @@ jsonAll.forEach(function(val){
 	contents += "</div>\n";
 
 	contents += "<div class=\"title-style\">";
-	contents += "<a href=\"" + val.url + "\">";
-	contents += val.title;
+	contents += "<a href=\"" + jsonObj.url + "\">";
+	contents += jsonObj.title;
 	contents += "</a>";
 	contents += "</div>\n";
 
 	contents += "<div class=\"comment-style\">";
-	contents += val.comment;
+	contents += jsonObj.comment;
 	contents += "...";	// substitutes for text-overflow
 	contents += "</div>\n";
 
